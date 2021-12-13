@@ -1,0 +1,2 @@
+module FileSqueeze {
+}
