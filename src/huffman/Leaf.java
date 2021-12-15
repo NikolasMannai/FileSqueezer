@@ -11,4 +11,16 @@ public class Leaf extends Node{
 		this.character = ch;
 		this.frequency = freq;
 	}
+	
+	public int getFrequency() {
+		return this.frequency;
+	}
+	
+	public Character getChar() {
+		return this.character;
+	}
+	
+	public int compareTo(Node node) {
+		return Integer.compare(frequency, node.getFrequency());
+	}
 }
