@@ -7,14 +7,14 @@ import java.util.Queue;
 
 public class Huffman {
 	private Node root;
-	private final String text;
+	private String text;
 	private Map<Character, Integer> charFrequencies;
-	private final Map<Character, String> huffmanCode;
+	private Map<Character, String> huffmanCode;
 	
  	public Huffman(String text)  {
  		this.text = text;
  		fillCharFrequencies();
- 		huffmanCode = new HashMap<>();
+ 		huffmanCode = new HashMap<>(); 
  	}
  	
  	private void fillCharFrequencies() {
@@ -26,7 +26,7 @@ public class Huffman {
  	}
  	
  	public String encode() {
- 		Queue<Node> queue = new PriorityQueue<>(); // Beroende på vad som Jonas svarar måste denna konstruktör ändras
+ 		Queue<Node> queue = new PriorityQueue<>(); 
  		charFrequencies.forEach((character, frequency) -> queue.add(new Leaf(character, frequency)));
  		
  		while (queue.size() > 1) {
