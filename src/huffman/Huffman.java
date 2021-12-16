@@ -2,10 +2,11 @@ package huffman;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Queue;
 
-public class Huffman {
+import huffmanPriok.PriorityQueueMain;
+
+
+public class Huffman{
 	private Node root;
 	private String text;
 	private Map<Character, Integer> charFrequencies;
@@ -26,13 +27,13 @@ public class Huffman {
  	}
  	
  	public String encode() {
- 		Queue<Node> queue = new PriorityQueue<>(); 
- 		charFrequencies.forEach((character, frequency) -> queue.add(new Leaf(character, frequency)));
+ 		PriorityQueueMain<Node> queue = new PriorityQueueMain<>(); 
+ 		charFrequencies.forEach((character, frequency) -> queue.enqueue(new Leaf(character, frequency)));
  		
  		while (queue.size() > 1) {
- 			queue.add(new InternalNode(queue.poll(), queue.poll()));
+ 			queue.enqueue(new InternalNode(queue.dequeue(), queue.dequeue()));
  		}
- 		generateHuffmanCode(root = queue.poll(), "");
+ 		generateHuffmanCode(root = queue.dequeue(), "");
  		return getEncodedText();
  	}
  	
