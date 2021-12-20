@@ -171,12 +171,13 @@ public class PriorityQueueMain<T extends Comparable<? super T>> implements Prior
 	/**
 	 * tar bort ett ett element från kön.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public T dequeue() {
 		if(rootNode == null) {
 	        throw new EmptyQueueExeption("den är tom");
 	    } else if(rootNode.leftChildeNode != null) {
-	        return (T) removeFirst(rootNode);
+	        return removeFirst(rootNode);
 	    } else {
 	        TreeNode<T> minNode = rootNode;
 	        rootNode = rootNode.rightChildNode;
@@ -189,12 +190,12 @@ public class PriorityQueueMain<T extends Comparable<? super T>> implements Prior
 	 * @param node
 	 * @return
 	 */
-	private TreeNode<T> removeFirst(final TreeNode<T> node) {
+	private T removeFirst(final TreeNode<T> node) {
 		if(node.leftChildeNode.leftChildeNode == null) {
 	        TreeNode<T> minNode = node.leftChildeNode;
 	        node.leftChildeNode = node.leftChildeNode.rightChildNode;
 	        minNode.rightChildNode = null;
-	        return minNode;
+	        return minNode.data;
 	    } else {
 	        return removeFirst(node.leftChildeNode);
 	    }

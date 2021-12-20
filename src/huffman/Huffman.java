@@ -6,7 +6,7 @@ import java.util.Map;
 import huffmanPriok.PriorityQueueMain;
 
 
-public class Huffman{
+public class Huffman <T extends Comparable<? super T>>{
 	private Node root;
 	private String text;
 	private Map<Character, Integer> charFrequencies;
