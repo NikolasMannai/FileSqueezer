@@ -3,7 +3,7 @@ package huffman;
  * A leaf node in a tree, meaning it has no children. 
  *
  */
-public class Leaf extends Node{
+public class Leaf extends Node {
 	public final Character character;
 	private final Integer frequency;
 	

@@ -18,6 +18,11 @@ public class Huffman <T extends Comparable<? super T>>{
  		huffmanCode = new HashMap<>(); 
  	}
  	
+ 	public Huffman(String text, Map<Character, String> huffmanCode)  {
+ 		this.text = text;
+ 		this.huffmanCode = huffmanCode;
+ 	}
+ 	
  	private void fillCharFrequencies() {
  		charFrequencies = new HashMap<>();
  		for(char character : text.toCharArray()) {

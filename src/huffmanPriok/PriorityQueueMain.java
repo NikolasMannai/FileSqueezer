@@ -171,7 +171,6 @@ public class PriorityQueueMain<T extends Comparable<? super T>> implements Prior
 	/**
 	 * tar bort ett ett element från kön.
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public T dequeue() {
 		if(rootNode == null) {
