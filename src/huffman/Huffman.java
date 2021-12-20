@@ -11,6 +11,7 @@ public class Huffman <T extends Comparable<? super T>>{
 	private String text;
 	private Map<Character, Integer> charFrequencies;
 	private Map<Character, String> huffmanCode;
+	private PriorityQueueMain<Node> queue; 
 	
  	public Huffman(String text)  {
  		this.text = text;
@@ -32,7 +33,7 @@ public class Huffman <T extends Comparable<? super T>>{
  	}
  	
  	public String encode() {
- 		PriorityQueueMain<Node> queue = new PriorityQueueMain<>(); 
+ 		queue = new PriorityQueueMain<>(); 
  		charFrequencies.forEach((character, frequency) -> queue.enqueue(new Leaf(character, frequency)));
  		
  		while (queue.size() > 1) {
@@ -74,5 +75,9 @@ public class Huffman <T extends Comparable<? super T>>{
  	
  	public void printHuffmanCode() {
  		huffmanCode.forEach((character, code) -> System.out.print(character + " - " + code));
+ 	}
+ 	
+ 	public void printData() {
+ 		// TODO	
  	}
 }

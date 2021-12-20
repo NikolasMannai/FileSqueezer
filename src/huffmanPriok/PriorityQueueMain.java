@@ -225,17 +225,17 @@ public class PriorityQueueMain<T extends Comparable<? super T>> implements Prior
 	 * skriver ut värdena i ordning.
 	 * @param node
 	 */
-	private void printInorder(final TreeNode<T> node) {
+	private void printInOrder(final TreeNode<T> node) {
         if (node != null) {
-        	printInorder(node.leftChildeNode);
+        	printInOrder(node.leftChildeNode);
         	System.out.print(node.data + " ");
-        	printInorder(node.rightChildNode);    	
+        	printInOrder(node.rightChildNode);    	
         }
     }
 	/**
 	 * kallar på printInorder() och skriver ut värderna.
 	 */
 	public void printInorder() {
-		printInorder(rootNode);
+		printInOrder(rootNode);
 	}
 }
