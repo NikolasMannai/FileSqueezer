@@ -5,7 +5,7 @@ import javax.swing.JFileChooser;
 public class MainTest {
 	public static void main(String[] args) {
 		JFileChooser jfc = new JFileChooser();
-		String originalText = "Lorem Ipsum";
+		String originalText = "ABCDE";
 		if (originalText.length() > 1) {
 			System.out.println("The original text is: " + originalText);
 			Huffman huffman = new Huffman(originalText);
