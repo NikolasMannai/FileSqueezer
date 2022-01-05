@@ -14,11 +14,12 @@ public class Controller {
 		mainFrame.setVisible(true);
 	}
 	
-	public void controllerEncode() {
-		
+	public void encode(String filePath) {
+		System.out.print(filePath);
 	}
 	
-	public void controllerDecode() {
-		
+	public void decode(String filePath) {
+		System.out.print(filePath);
+
 	}
 }

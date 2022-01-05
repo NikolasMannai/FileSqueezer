@@ -57,33 +57,20 @@ public class Graphics extends JFrame {
 	}
 
 	private void encode() throws IOException {
-		try {
-		JFileChooser fileChooser = new JFileChooser();
-		fileChooser.setCurrentDirectory(new File("C:/"));
-		int response = fileChooser.showOpenDialog(null);
-		if (response == JFileChooser.APPROVE_OPTION) {
-			InputStream inputStream = new FileInputStream(fileChooser.getSelectedFile().getAbsolutePath());
-			//Writes inputstream as a string in order to check if it works
-			 int bufferSize = 1024;
-			 char[] buffer = new char[bufferSize];
-			 StringBuilder out = new StringBuilder();
-			 Reader in = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-			 for (int numRead; (numRead = in.read(buffer, 0, buffer.length)) > 0; ) {
-			     out.append(buffer, 0, numRead);
-			 }
-			 System.out.print(out.toString());
-		}
-		} catch (FileNotFoundException e) {
-			JOptionPane.showMessageDialog(new JFrame(), "File Not Found");
-		}
+		controller.encode(getFile());
 	}
 
 	private void decode() {
+		controller.decode(getFile());
+	}
+	
+	private String getFile() {
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.setCurrentDirectory(new File("C:/"));
 		int response = fileChooser.showOpenDialog(null);
 		if (response == JFileChooser.APPROVE_OPTION) {
-			
+			return fileChooser.getSelectedFile().getAbsolutePath().toString();
 		}
+		return null;
 	}
 }

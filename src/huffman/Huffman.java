@@ -1,9 +1,11 @@
 package huffman;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import huffmanPriok.PriorityQueueMain;
+import huffmanPriok.PriorityQueueMain.TreeNode;
 
 
 public class Huffman <T extends Comparable<? super T>>{
@@ -12,7 +14,7 @@ public class Huffman <T extends Comparable<? super T>>{
 	private Map<Character, Integer> charFrequencies;
 	private Map<Character, String> huffmanCode;
 	private PriorityQueueMain<Node> queue; 
-	
+
  	public Huffman(String text)  {
  		this.text = text;
  		fillCharFrequencies();
@@ -46,8 +48,7 @@ public class Huffman <T extends Comparable<? super T>>{
  	private String getEncodedText() {
  		StringBuilder sb = new StringBuilder();
  		for (char character : text.toCharArray()) {
- 		//	sb.append(readAsciiValue(character)).toString();
- 			sb.append(huffmanCode.get(character) + " ");
+ 			sb.append(huffmanCode.get(character));
  		}
  		return sb.toString();
  	}
@@ -55,7 +56,6 @@ public class Huffman <T extends Comparable<? super T>>{
  	private void generateHuffmanCode(Node node, String code) {
  		if(node instanceof Leaf) {
  			huffmanCode.put(((Leaf) node).getChar(), code);
- 			
  			return;
  		}
  		generateHuffmanCode(((InternalNode) node).getLeftChild(), code.concat("0"));
@@ -76,30 +76,6 @@ public class Huffman <T extends Comparable<? super T>>{
  	}
  	
  	public void printHuffmanCode() {
- 		huffmanCode.forEach((character, code) -> System.out.print(character + " - " + code + " "));
+ 		huffmanCode.forEach((character, code) -> System.out.print(String.format("%8s", Integer.toBinaryString(character)).replace(' ', '0') + " - " + code + " "));
  	}
- 	
- 	public void printData() {
- 		// TODO	
- 	}
- 	/*
- 	private String readAsciiValue(char c) {
- 		int ascii = c;
- 		StringBuilder binaryCode = new StringBuilder();
- 		for(int i = 128; i >= 1; i/=2) {
- 			if(ascii%i >= 1 && ascii>=i) {
- 				binaryCode.append(1);
- 				ascii -= i;
- 			} else {
- 				binaryCode.append(0);
- 			}
- 		}
- 		if(ascii == 1) {
- 			binaryCode.append(1);
- 		} else {
- 			binaryCode.append(0);
- 		}
- 		System.out.println(c + " = " +binaryCode.toString());
-		return binaryCode.toString();
- 	}*/
 }
