@@ -25,10 +25,7 @@ public class Controller {
 	}
 
 	public void encode(String filePath)
-			throws IOException {/*
-								 * BitReader bitReader = new BitReader(new FileInputStream(filePath));
-								 * while(bitReader.read() != -1) { System.out.print(bitReader.toString()); }
-								 */
+			throws IOException {
 		int a = 0;
 		BitReader bR = new BitReader(new FileInputStream(filePath));
 		StringBuilder sb = new StringBuilder();
@@ -47,7 +44,6 @@ public class Controller {
 		String originalText = sb2.toString();
 		System.out.println("The original text is: " + originalText);
 		Huffman huffman = new Huffman(originalText);
-
 		String encodedText = huffman.encode();
 		System.out.println("First Encoded text is: " + encodedText);
 		System.out.print("First Generated Huffman Code is: ");
@@ -57,9 +53,9 @@ public class Controller {
 		boolean compared = originalText.compareTo(decodedText) == 0;
 		String isSame = "Is first original text and decoded one the same?";
 		System.out.println((compared) ? isSame + " yes" : isSame + " no");
-		BitWriter bW = new BitWriter(new FileOutputStream(filePath + "huffman"));
-		for(int i = 0; i <= sb.length(); i++) {
-			nextChar = decodedText.charAt(i);
+		BitWriter bW = new BitWriter(new FileOutputStream("huffman.txt"));
+		for(int i = 0; i < encodedText.length(); i++) {
+			nextChar = encodedText.charAt(i);
 			bW.write(Integer.parseInt(Integer.toBinaryString(nextChar)));
 		}
 		System.out.print("bits written: " + bW.bitsWritten());

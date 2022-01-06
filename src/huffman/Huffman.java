@@ -76,6 +76,7 @@ public class Huffman <T extends Comparable<? super T>>{
  	}
  	
  	public void printHuffmanCode() {
- 		huffmanCode.forEach((character, code) -> System.out.print(String.format("%8s", Integer.toBinaryString(character)).replace(' ', '0') + " - " + code + " "));
+ 		huffmanCode.forEach((character, code) -> System.out.print(String.format(character +  " - " + code + " ")));
+ 		//huffmanCode.forEach((character, code) -> System.out.print(String.format("%8s", Integer.toBinaryString(character)).replace(' ', '0') + " - " + code + " "));
  	}
 }
