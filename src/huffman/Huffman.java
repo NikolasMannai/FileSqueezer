@@ -22,7 +22,7 @@ public class Huffman <T extends Comparable<? super T>>{
  	}
  	
  	public Huffman(String text, Map<Character, String> huffmanCode)  {
- 		this.text = text;
+ 		this.text = text; 
  		this.huffmanCode = huffmanCode;
  	}
  	

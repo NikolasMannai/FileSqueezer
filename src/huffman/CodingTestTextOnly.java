@@ -1,10 +1,7 @@
 package huffman;
 
-import javax.swing.JFileChooser;
-
-public class MainTest {
+public class CodingTestTextOnly {
 	public static void main(String[] args) {
-		JFileChooser jfc = new JFileChooser();
 		String originalText = "ABCDE";
 		if (originalText.length() > 1) {
 			System.out.println("The original text is: " + originalText);

@@ -35,12 +35,10 @@ public class Graphics extends JFrame {
 		JPanel container = new JPanel();
 		container.setLayout(new GridLayout(2, 2));
 		this.add(container);
-		JLabel emptyFrame1 = new JLabel();
-		JLabel emptyFrame2 = new JLabel();
 		JButton btnEncode = new JButton(BTN_ENCODE_TEXT);
 		JButton btnDecode = new JButton(BTN_DECODE_TEXT);
-		container.add(emptyFrame1);
-		container.add(emptyFrame2);
+		container.add(new JLabel());
+		container.add(new JLabel());
 		container.add(btnEncode);
 		container.add(btnDecode);
 		btnEncode.addActionListener(e -> {
@@ -63,13 +61,15 @@ public class Graphics extends JFrame {
 	private void decode() {
 		controller.decode(getFile());
 	}
-	
+
 	private String getFile() {
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.setCurrentDirectory(new File("C:/"));
 		int response = fileChooser.showOpenDialog(null);
-		if (response == JFileChooser.APPROVE_OPTION) {
-			return fileChooser.getSelectedFile().getAbsolutePath().toString();
+		if (fileChooser.getSelectedFile() != null) {
+			if (response == JFileChooser.APPROVE_OPTION) {
+				return fileChooser.getSelectedFile().getAbsolutePath().toString();
+			}
 		}
 		return null;
 	}
