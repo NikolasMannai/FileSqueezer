@@ -1,9 +1,7 @@
 package huffmanPriok;
 
-import java.util.ArrayList;
-
 /**
- * @author oliver
+ * @author Nikolas Mannai, Oliver Jonsson
  * @param <T>
  */
 public class PriorityQueueMain<T extends Comparable<? super T>> implements PriorityQueue<T> {
