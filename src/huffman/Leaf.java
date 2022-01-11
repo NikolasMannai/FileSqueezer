@@ -1,7 +1,7 @@
 package huffman;
 /**
  * A leaf node in a tree, meaning it has no children. 
- * @author Nikolas Mannai, Oliver Jonson
+ * @author Nikolas Mannai, Oliver Jonsson
  */
 public class Leaf extends Node {
 	private final Character character;

@@ -1,7 +1,7 @@
 package huffman;
 /**
  * A node in a tree. Two classes extend this class: InternalNode and Leaf.
- * @author Nikolas Mannai, Oliver Jonson
+ * @author Nikolas Mannai, Oliver Jonsson
  */
 public abstract class Node implements Comparable<Node>{
 	Node() {	
