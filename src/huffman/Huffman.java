@@ -73,7 +73,7 @@ public class Huffman<T extends Comparable<? super T>> {
 
 	/**
 	 * Generates huffman code for each character. Starts with a root and keeps going
-	 * until leaf node is reached. 
+	 * until leaf node is reached. For every step to the left, adds 0 to the string. For every step to the right, adds 1 to the string
 	 * @param node that is root
 	 * @param code String coded representation of a character
 	 */
@@ -87,8 +87,8 @@ public class Huffman<T extends Comparable<? super T>> {
 	}
 
 	/**
-	 * Decodes an encoded text
-	 * 
+	 * Decodes an encoded text. Traverses the tree for every digit for left if it is a zero, or one if it is right until a leaf node is reached. 
+	 * After every leaf match goes back to root in order to decode the next digit.  
 	 * @param encodedText String encoded text
 	 * @return String decoded text
 	 */
@@ -96,7 +96,7 @@ public class Huffman<T extends Comparable<? super T>> {
 		StringBuilder sb = new StringBuilder();
 		Node current = root;
 		for (char character : encodedText.toCharArray()) {
-			current = character == '0' ? ((InternalNode) current).getLeftChild()
+			current = character == '0' ? ((InternalNode) current).getLeftChild() 
 					: ((InternalNode) current).getRightChild();
 			if (current instanceof Leaf) {
 				sb.append(((Leaf) current).getChar());
@@ -111,9 +111,6 @@ public class Huffman<T extends Comparable<? super T>> {
 	 */
 	public void printHuffmanCode() {
 		huffmanCode.forEach((character, code) -> System.out.print(character.toString() + " - " + code + " "));
-		// huffmanCode.forEach((character, code) ->
-		// System.out.print(String.format("%8s",
-		// Integer.toBinaryString(character)).replace(' ', '0') + " - " + code + " "));
 	}
 
 	/**

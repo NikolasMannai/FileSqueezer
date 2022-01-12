@@ -67,9 +67,8 @@ public class Controller {
 		System.out.print("*--------------------*\nbits written: " + bW.bitsWritten());
 		bW.close();
 		BitWriter bW2 = new BitWriter(new FileOutputStream("HuffmanDecoded"));
-		for (int j = 0; j < decodedText.length(); j++) {
-			nextChar = decodedText.charAt(j);
-			String characterInBinary = String.format("%8s", Integer.toBinaryString(nextChar)).replace(' ', '0');
+		for (char ch: decodedText.toCharArray()) {
+			String characterInBinary = String.format("%8s", Integer.toBinaryString(ch)).replace(' ', '0');
 			for(int k = 0; k < characterInBinary.length(); k++) {
 				bW2.write(Integer.parseInt(characterInBinary.substring(k,k+1)));
 			}

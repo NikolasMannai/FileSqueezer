@@ -2,7 +2,7 @@ package huffman;
 
 public class CodingTestTextOnly {
 	public static void main(String[] args) {
-		String originalText = "ABCDE";
+		String originalText = "ABCCCDEE    Z";
 		if (originalText.length() > 1) {
 			System.out.println("The original text is: " + originalText);
 			Huffman huffman = new Huffman(originalText);
